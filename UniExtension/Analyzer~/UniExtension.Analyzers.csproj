@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <IsRoslynComponent>true</IsRoslynComponent>
+    <EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <AssemblyName>UniExtension.Analyzers</AssemblyName>
+    <RootNamespace>UniExtension.Analyzers</RootNamespace>
+    <NoWarn>$(NoWarn);RS2008;CS8601;CS8602</NoWarn>
+    <UnityAnalyzerOutputDir>$(MSBuildProjectDirectory)\..\Analyzers</UnityAnalyzerOutputDir>
+  </PropertyGroup>
+  <ItemGroup>
+    <EmbeddedResource Remove="Samples~\**" />
+    <None Remove="Samples~\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.3.0" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="3.11.0" PrivateAssets="all" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="PListReturnTypeAnalyzer.cs" />
+  </ItemGroup>
+
+  <Target Name="DeployAnalyzerToUnityPackage" AfterTargets="Build">
+    <MakeDir Directories="$(UnityAnalyzerOutputDir)" />
+    <Copy SourceFiles="$(TargetPath)" DestinationFiles="$(UnityAnalyzerOutputDir)\UniExtension.Analyzers.dll" SkipUnchangedFiles="true" />
+    <Copy SourceFiles="$(TargetDir)$(AssemblyName).pdb" DestinationFiles="$(UnityAnalyzerOutputDir)\UniExtension.Analyzers.pdb" Condition="Exists('$(TargetDir)$(AssemblyName).pdb')" SkipUnchangedFiles="true" />
+  </Target>
+</Project>

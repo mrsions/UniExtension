@@ -1,0 +1,11 @@
+E:\Kioksiot\Projects\Games\Sionsbeat\Packages\UniExtension\Analyzer~\Samples~\bin\Debug\net8.0\UniExtension.Analyzers.BadSamples.deps.json
+E:\Kioksiot\Projects\Games\Sionsbeat\Packages\UniExtension\Analyzer~\Samples~\bin\Debug\net8.0\UniExtension.Analyzers.BadSamples.dll
+E:\Kioksiot\Projects\Games\Sionsbeat\Packages\UniExtension\Analyzer~\Samples~\bin\Debug\net8.0\UniExtension.Analyzers.BadSamples.pdb
+E:\Kioksiot\Projects\Games\Sionsbeat\Packages\UniExtension\Analyzer~\Samples~\obj\Debug\net8.0\UniExtension.Analyzers.BadSamples.GeneratedMSBuildEditorConfig.editorconfig
+E:\Kioksiot\Projects\Games\Sionsbeat\Packages\UniExtension\Analyzer~\Samples~\obj\Debug\net8.0\UniExtension.Analyzers.BadSamples.AssemblyInfoInputs.cache
+E:\Kioksiot\Projects\Games\Sionsbeat\Packages\UniExtension\Analyzer~\Samples~\obj\Debug\net8.0\UniExtension.Analyzers.BadSamples.AssemblyInfo.cs
+E:\Kioksiot\Projects\Games\Sionsbeat\Packages\UniExtension\Analyzer~\Samples~\obj\Debug\net8.0\UniExtension.Analyzers.BadSamples.csproj.CoreCompileInputs.cache
+E:\Kioksiot\Projects\Games\Sionsbeat\Packages\UniExtension\Analyzer~\Samples~\obj\Debug\net8.0\UniExtension.Analyzers.BadSamples.dll
+E:\Kioksiot\Projects\Games\Sionsbeat\Packages\UniExtension\Analyzer~\Samples~\obj\Debug\net8.0\refint\UniExtension.Analyzers.BadSamples.dll
+E:\Kioksiot\Projects\Games\Sionsbeat\Packages\UniExtension\Analyzer~\Samples~\obj\Debug\net8.0\UniExtension.Analyzers.BadSamples.pdb
+E:\Kioksiot\Projects\Games\Sionsbeat\Packages\UniExtension\Analyzer~\Samples~\obj\Debug\net8.0\ref\UniExtension.Analyzers.BadSamples.dll

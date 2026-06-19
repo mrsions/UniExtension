@@ -1,0 +1,30 @@
+﻿{
+    "name": "UniExtension.Editor",
+    "rootNamespace": "",
+    "references": [
+        "UniTask",
+        "UniExtension"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": true,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [
+        {
+            "name": "com.cysharp.unitask",
+            "expression": "",
+            "define": "ENABLE_UNITASK"
+        },
+        {
+            "name": "Unity",
+            "expression": "",
+            "define": "IS_UNITY"
+        }
+    ],
+    "noEngineReferences": false
+}
