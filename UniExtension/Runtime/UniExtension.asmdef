@@ -1,4 +1,4 @@
-﻿{
+{
     "name": "UniExtension",
     "rootNamespace": "",
     "references": [
@@ -21,6 +21,11 @@
             "name": "Unity",
             "expression": "",
             "define": "IS_UNITY"
+        },
+        {
+            "name": "Unity",
+            "expression": "",
+            "define": "ENABLE_UNSAFE"
         }
     ],
     "noEngineReferences": false

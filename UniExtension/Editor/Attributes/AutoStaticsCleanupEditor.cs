@@ -26,6 +26,8 @@ namespace Packages.UniExtension.Editor.Attributes
             foreach (var field in fields)
             {
                 if (!field.IsStatic) continue;
+                if (!CanUseLateBoundReflection(field)) continue;
+
                 try
                 {
                     _initialFieldValues[field] = CloneObject(field.GetValue(null));
@@ -57,6 +59,8 @@ namespace Packages.UniExtension.Editor.Attributes
                     {
                         if (prop.GetCustomAttribute<AutoStaticsCleanupAttribute>() != null && prop.CanRead)
                         {
+                            if (!CanUseLateBoundReflection(prop)) continue;
+
                             try
                             {
                                 _initialPropertyValues[prop] = CloneObject(prop.GetValue(null));
@@ -176,6 +180,7 @@ namespace Packages.UniExtension.Editor.Attributes
             foreach (var field in fields)
             {
                 if (!field.IsStatic) continue;
+                if (!CanUseLateBoundReflection(field)) continue;
 
                 try
                 {
@@ -212,6 +217,7 @@ namespace Packages.UniExtension.Editor.Attributes
                         if (prop.GetCustomAttribute<AutoStaticsCleanupAttribute>() != null)
                         {
                             if (!prop.CanWrite) continue;
+                            if (!CanUseLateBoundReflection(prop)) continue;
 
                             try
                             {
@@ -226,6 +232,20 @@ namespace Packages.UniExtension.Editor.Attributes
                     }
                 }
             }
+        }
+
+        private static bool CanUseLateBoundReflection(FieldInfo field)
+        {
+            return field.DeclaringType != null
+                && !field.DeclaringType.ContainsGenericParameters
+                && !field.FieldType.ContainsGenericParameters;
+        }
+
+        private static bool CanUseLateBoundReflection(PropertyInfo property)
+        {
+            return property.DeclaringType != null
+                && !property.DeclaringType.ContainsGenericParameters
+                && !property.PropertyType.ContainsGenericParameters;
         }
     }
 }

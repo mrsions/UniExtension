@@ -7,45 +7,48 @@ using System.Threading;
 
 namespace UniExtension
 {
-public abstract class Singleton<T>
-    where T : class
-{
-    private static T? s_main;
-
-    public static T main
+    public abstract class Singleton<T>
+        where T : class
     {
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        get
+        private static T? s_main;
+
+        public static T main
         {
-            var main = s_main;
-            if (main == null)
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get
             {
-                lock (typeof(Singleton<T>))
+                var main = s_main;
+                if (main == null)
                 {
-                    main = Volatile.Read(ref s_main);
-                    if(main == null)
+                    lock (typeof(Singleton<T>))
                     {
-                        main = Activator.CreateInstance<T>();
-                        Volatile.Write(ref s_main, main);
+                        main = Volatile.Read(ref s_main);
+                        if(main == null)
+                        {
+                            main = Activator.CreateInstance<T>();
+                            Volatile.Write(ref s_main, main);
+                        }
                     }
                 }
+                return main;
             }
-            return main;
+        }
+
+        public static bool hasMain
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => s_main != null;
+        }
+
+        public Singleton()
+        {
+            Assert.IsTrue(typeof(T).IsSubclassOf(typeof(Singleton<T>)));
+
+    #if HAS_SYSTEM_RUNTIME_COMPILERSERVICES_UNSAFE
+            s_main = Unsafe.As<T>(this);
+    #else
+            s_main = this as T;
+    #endif
         }
     }
-
-    public static bool hasMain
-    {
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        get => s_main != null;
-    }
-
-    public Singleton()
-    {
-#if UNITY_ASSERTIONS
-        Assert.IsTrue(typeof(T).IsSubclassOf(typeof(Singleton<T>)));
-#endif
-        s_main = Unsafe.As<T>(this);
-    }
-}
 }
