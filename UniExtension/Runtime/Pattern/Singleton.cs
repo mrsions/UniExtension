@@ -12,7 +12,7 @@ namespace UniExtension
     {
         private static T? s_main;
 
-        public static T main
+        public static T Instance
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get
@@ -34,7 +34,7 @@ namespace UniExtension
             }
         }
 
-        public static bool hasMain
+        public static bool HasInstance
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get => s_main != null;

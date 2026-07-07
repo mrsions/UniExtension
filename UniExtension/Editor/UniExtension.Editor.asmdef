@@ -1,9 +1,9 @@
-﻿{
+{
     "name": "UniExtension.Editor",
     "rootNamespace": "",
     "references": [
-        "UniTask",
-        "UniExtension"
+        "UniExtension",
+        "UniTask"
     ],
     "includePlatforms": [
         "Editor"

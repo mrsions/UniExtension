@@ -1,4 +1,4 @@
-#nullable enable
+﻿#nullable enable
 #line hidden
 
 using System;
@@ -38,8 +38,8 @@ public abstract class SingletonBehaviour<T> : MonoBehaviour
     [AutoStaticsCleanup]
     private static T? s_main;
 
-    public static bool HasMain => s_main != null;
-    public static T main
+    public static bool HasInstance => s_main != null;
+    public static T Instance
     {
         get
         {

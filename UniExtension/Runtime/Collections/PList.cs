@@ -20,7 +20,7 @@ namespace UniExtension.Collections
 #endif
         public void Dispose()
         {
-            PList.InternalPool<T>.main.Release(this);
+            PList.InternalPool<T>.Instance.Release(this);
         }
     }
 
@@ -28,12 +28,12 @@ namespace UniExtension.Collections
     {
         public static PList<T> Take<T>()
         {
-            return InternalPool<T>.main.Take(0);
+            return InternalPool<T>.Instance.Take(0);
         }
 
         public static PList<T> Take<T>(int capacity)
         {
-            return InternalPool<T>.main.Take(capacity);
+            return InternalPool<T>.Instance.Take(capacity);
         }
 
         public static PList<T> Take<T>(IEnumerable<T> enumerable)

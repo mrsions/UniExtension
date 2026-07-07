@@ -28,7 +28,7 @@ namespace UniExtension.Collections
 #endif
         public void Dispose()
         {
-            PDictionary.InternalPool<TKey, TValue>.main.Release(this);
+            PDictionary.InternalPool<TKey, TValue>.Instance.Release(this);
         }
     }
 
@@ -36,12 +36,12 @@ namespace UniExtension.Collections
     {
         public static PDictionary<TKey, TValue> Take<TKey, TValue>()
         {
-            return InternalPool<TKey, TValue>.main.Take(0);
+            return InternalPool<TKey, TValue>.Instance.Take(0);
         }
 
         public static PDictionary<TKey, TValue> Take<TKey, TValue>(int capacity)
         {
-            return InternalPool<TKey, TValue>.main.Take(capacity);
+            return InternalPool<TKey, TValue>.Instance.Take(capacity);
         }
 
         public static PDictionary<TKey, TValue> Take<TKey, TValue>(IEnumerable<KeyValuePair<TKey, TValue>> enumerable)
