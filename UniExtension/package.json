@@ -4,10 +4,5 @@
   "version": "1.0.1",
   "unity": "2022.3",
   "description": "",
-  "documentationUrl": "",
-  "repository": {
-    "url": "https://github.com/kioksiot/UniExtension.git",
-    "type": "git",
-    "revision": ""
-  }
+  "documentationUrl": ""
 }
